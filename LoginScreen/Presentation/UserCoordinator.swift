@@ -21,8 +21,9 @@ class UserCoordinator {
     
     private func loginScreen() {
         let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserController") as! UserController
-        let authService = AuthService()
-        let viewModel = UserViewModel(authService: authService, coordinator: self)
+        let repository = AuthService()
+        let loginUseCase = LoginUseCase(repository: repository )
+        let viewModel = UserViewModel(loginUseCase: loginUseCase, coordinator: self)
         loginViewController.viewModel = viewModel
         navigationController.pushViewController(loginViewController, animated: true)
     }
