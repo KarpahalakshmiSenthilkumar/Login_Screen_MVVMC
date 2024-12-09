@@ -14,8 +14,8 @@
             filePath = "LoginScreen/Login Flow/UserController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
             landmarkName = "UserController"
             landmarkType = "3">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "LoginScreen/Login Flow/UserCoordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
             landmarkName = "start()"
             landmarkType = "7">
          </BreakpointContent>
@@ -40,102 +40,16 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "3E713061-8D5E-4167-8E08-D8D204233B8E"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LoginScreen/Login Flow/UserController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
             landmarkName = "UserController"
             landmarkType = "3">
-            <Locations>
-               <Location
-                  uuid = "3E713061-8D5E-4167-8E08-D8D204233B8E - 336bc401f97a2aa3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LoginScreen.UserController.viewModel.getter : Swift.Optional&lt;LoginScreen.UserViewModel&gt;"
-                  moduleName = "LoginScreen"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/karpahalakshmi/Documents/LoginScreen/LoginScreen/Login%20Flow/UserController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0">
-               </Location>
-               <Location
-                  uuid = "3E713061-8D5E-4167-8E08-D8D204233B8E - e37fa8bf149858ed"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LoginScreen.UserController.viewModel.setter : Swift.Optional&lt;LoginScreen.UserViewModel&gt;"
-                  moduleName = "LoginScreen"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/karpahalakshmi/Documents/LoginScreen/LoginScreen/Login%20Flow/UserController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "18"
-                  endingLineNumber = "18">
-               </Location>
-               <Location
-                  uuid = "3E713061-8D5E-4167-8E08-D8D204233B8E - 525825b83f29a9d2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LoginScreen.UserController.viewModel.modify : Swift.Optional&lt;LoginScreen.UserViewModel&gt;"
-                  moduleName = "LoginScreen"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/karpahalakshmi/Documents/LoginScreen/LoginScreen/Login%20Flow/UserController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "18"
-                  endingLineNumber = "18">
-               </Location>
-               <Location
-                  uuid = "3E713061-8D5E-4167-8E08-D8D204233B8E - 7b234cccfa7f6905"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LoginScreen.UserController.viewModel.modify : Swift.Optional&lt;LoginScreen.UserViewModel&gt; with unmangled suffix &quot;.resume.0&quot;"
-                  moduleName = "LoginScreen"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/karpahalakshmi/Documents/LoginScreen/%3Ccompiler-generated%3E"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0">
-               </Location>
-               <Location
-                  uuid = "3E713061-8D5E-4167-8E08-D8D204233B8E - 700c151fe5dc4d04"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LoginScreen.UserController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; LoginScreen.UserController"
-                  moduleName = "LoginScreen"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/karpahalakshmi/Documents/LoginScreen/LoginScreen/Login%20Flow/UserController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "18"
-                  endingLineNumber = "18">
-               </Location>
-               <Location
-                  uuid = "3E713061-8D5E-4167-8E08-D8D204233B8E - b2f5f99fb712b411"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LoginScreen.UserController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;LoginScreen.UserController&gt;"
-                  moduleName = "LoginScreen"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/karpahalakshmi/Documents/LoginScreen/LoginScreen/Login%20Flow/UserController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "18"
-                  endingLineNumber = "18">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

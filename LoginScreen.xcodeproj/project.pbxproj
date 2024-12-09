@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C5457B2B2D0176470038948B /* homeScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5457B2A2D0176470038948B /* homeScreenCoordinator.swift */; };
+		C5457B2D2D0177C70038948B /* homeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5457B2C2D0177C70038948B /* homeScreenViewModel.swift */; };
 		C574DB0C2CF6F7000071B525 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C574DB0B2CF6F7000071B525 /* AppDelegate.swift */; };
 		C574DB0E2CF6F7000071B525 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C574DB0D2CF6F7000071B525 /* SceneDelegate.swift */; };
 		C574DB102CF6F7000071B525 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C574DB0F2CF6F7000071B525 /* ViewController.swift */; };
@@ -23,6 +25,9 @@
 		C574DB4A2CF7031B0071B525 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C574DB492CF7031B0071B525 /* UserController.swift */; };
 		C574DB4C2CF7355D0071B525 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C574DB4B2CF7355D0071B525 /* LoginResponse.swift */; };
 		C574DB512CF73A800071B525 /* homeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C574DB502CF73A800071B525 /* homeScreenViewController.swift */; };
+		C577F6D12D00080D003A2F8F /* AuthServiceInvokable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C577F6D02D00080D003A2F8F /* AuthServiceInvokable.swift */; };
+		C57C72672D02BC4B00ECAE0A /* IoC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57C72662D02BC4B00ECAE0A /* IoC.swift */; };
+		C57C726F2D02C91F00ECAE0A /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = C57C726E2D02C91F00ECAE0A /* Swinject */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C5457B2A2D0176470038948B /* homeScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeScreenCoordinator.swift; sourceTree = "<group>"; };
+		C5457B2C2D0177C70038948B /* homeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeScreenViewModel.swift; sourceTree = "<group>"; };
 		C574DB082CF6F7000071B525 /* LoginScreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginScreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C574DB0B2CF6F7000071B525 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C574DB0D2CF6F7000071B525 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +70,8 @@
 		C574DB492CF7031B0071B525 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		C574DB4B2CF7355D0071B525 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		C574DB502CF73A800071B525 /* homeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeScreenViewController.swift; sourceTree = "<group>"; };
+		C577F6D02D00080D003A2F8F /* AuthServiceInvokable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceInvokable.swift; sourceTree = "<group>"; };
+		C57C72662D02BC4B00ECAE0A /* IoC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IoC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C57C726F2D02C91F00ECAE0A /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +134,8 @@
 				C574DB162CF6F7030071B525 /* LaunchScreen.storyboard */,
 				C574DB192CF6F7030071B525 /* Info.plist */,
 				C574DB3E2CF6FDF60071B525 /* AuthService.swift */,
+				C577F6D02D00080D003A2F8F /* AuthServiceInvokable.swift */,
+				C57C72662D02BC4B00ECAE0A /* IoC.swift */,
 			);
 			path = LoginScreen;
 			sourceTree = "<group>";
@@ -168,6 +180,8 @@
 			isa = PBXGroup;
 			children = (
 				C574DB502CF73A800071B525 /* homeScreenViewController.swift */,
+				C5457B2A2D0176470038948B /* homeScreenCoordinator.swift */,
+				C5457B2C2D0177C70038948B /* homeScreenViewModel.swift */,
 			);
 			path = "Home screen";
 			sourceTree = "<group>";
@@ -188,6 +202,9 @@
 			dependencies = (
 			);
 			name = LoginScreen;
+			packageProductDependencies = (
+				C57C726E2D02C91F00ECAE0A /* Swinject */,
+			);
 			productName = LoginScreen;
 			productReference = C574DB082CF6F7000071B525 /* LoginScreen.app */;
 			productType = "com.apple.product-type.application";
@@ -260,6 +277,9 @@
 				Base,
 			);
 			mainGroup = C574DAFF2CF6F7000071B525;
+			packageReferences = (
+				C57C726D2D02C91F00ECAE0A /* XCRemoteSwiftPackageReference "Swinject" */,
+			);
 			productRefGroup = C574DB092CF6F7000071B525 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -306,12 +326,16 @@
 				C574DB3D2CF6F7DE0071B525 /* User.swift in Sources */,
 				C574DB512CF73A800071B525 /* homeScreenViewController.swift in Sources */,
 				C574DB462CF7015A0071B525 /* UserViewModel.swift in Sources */,
+				C5457B2B2D0176470038948B /* homeScreenCoordinator.swift in Sources */,
+				C5457B2D2D0177C70038948B /* homeScreenViewModel.swift in Sources */,
 				C574DB4C2CF7355D0071B525 /* LoginResponse.swift in Sources */,
 				C574DB4A2CF7031B0071B525 /* UserController.swift in Sources */,
+				C57C72672D02BC4B00ECAE0A /* IoC.swift in Sources */,
 				C574DB482CF701910071B525 /* UserCoordinator.swift in Sources */,
 				C574DB102CF6F7000071B525 /* ViewController.swift in Sources */,
 				C574DB3F2CF6FDF60071B525 /* AuthService.swift in Sources */,
 				C574DB0C2CF6F7000071B525 /* AppDelegate.swift in Sources */,
+				C577F6D12D00080D003A2F8F /* AuthServiceInvokable.swift in Sources */,
 				C574DB0E2CF6F7000071B525 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -653,6 +677,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C57C726D2D02C91F00ECAE0A /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C57C726E2D02C91F00ECAE0A /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C57C726D2D02C91F00ECAE0A /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C574DB002CF6F7000071B525 /* Project object */;
 }

@@ -10,8 +10,13 @@ import UIKit
 
 class UserCoordinator {
     var navigationController: UINavigationController
+    var authService: AuthServiceInvokable
     
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, authService: AuthServiceInvokable? = IoC.resolve(AuthServiceInvokable.self, from: .shared)) {
+        guard let resolvedAuthService = authService else {
+            preconditionFailure("Unable to resolve")
+        }
+        self.authService = resolvedAuthService as! AuthService
         self.navigationController = navigationController
     }
     
@@ -21,15 +26,15 @@ class UserCoordinator {
     
     private func loginScreen() {
         let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserController") as! UserController
-        let authService = AuthService()
+        let authService = authService
         let viewModel = UserViewModel(authService: authService, coordinator: self)
         loginViewController.viewModel = viewModel
         navigationController.pushViewController(loginViewController, animated: true)
     }
     
     func homeScreen() {
-        let homeViewController = UIViewController()
-        navigationController.pushViewController(homeViewController, animated: true)
+        let homeScreenCoordinator = HomeScreenCoordinator(navigationController: navigationController)
+        homeScreenCoordinator.start()
     }
     
     func displayError(message: String) {
