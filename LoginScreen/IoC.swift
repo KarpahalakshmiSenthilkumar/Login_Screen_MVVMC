@@ -25,12 +25,12 @@ class IoC {
     }
     
     static func registerInstance<Service>(_ serviceType: Service.Type, instance: Service, into containerType: ContainerType = .shared) {
-        containerType.container.register(serviceType) { [instance] _ in
+        containerType.container.register(serviceType) { _ in
             return instance
-        }
+        }.inObjectScope(.graph)
     }
 
     static func resolve<Service>(_ serviceType: Service.Type, from containerType: ContainerType = .shared) -> Service? {
-        return containerType.container.synchronize().resolve(serviceType)
+        return containerType.container.resolve(serviceType)
     }
 }

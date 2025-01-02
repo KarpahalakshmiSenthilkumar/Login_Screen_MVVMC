@@ -60,19 +60,19 @@ class UserViewModel: LoginViewModelInputs, LoginViewModelOutputs {
                 let isUsernameValid: Bool = userName.count > 0
                 let isPasswordValid: Bool = password.count > 0
                 let isLoginFailed: Bool = logFailed
-                
-                print(isUsernameValid)
-                print(isPasswordValid)
-                print(isLoginFailed)
-                
+
                 return isUsernameValid && isPasswordValid && !isLoginFailed
             }.eraseToAnyPublisher()
     }
+    
     public init(authService: AuthServiceInvokable? = IoC.resolve(AuthServiceInvokable.self), coordinator: UserCoordinator) {
         
         guard let resolvedAuthService = authService else {
             preconditionFailure("Unable to resolve")
         }
+        let service1 = IoC.resolve(AuthServiceInvokable.self)
+        let service2 = IoC.resolve(AuthServiceInvokable.self)
+        print(service1 === service2)
         self.authService = resolvedAuthService as! AuthService
         self.coordinator = coordinator
         self.usernameValue.send(self.authService.currentUsername.value ?? "")
@@ -81,14 +81,17 @@ class UserViewModel: LoginViewModelInputs, LoginViewModelOutputs {
         self.passwordInitialValue.send(self.authService.currentPassword.value ?? "")
     }
     
+//    deinit {
+//        IoC.reset(container: .shared)
+//        print("Deinitialized")
+//    }
+    
     func username(usernameValue: String) {
-        print("Inside username method")
         outputs.usernameValue.send(usernameValue)
         outputs.isLoginFailed.send(false)
     }
     
     func password(passwordValue: String) {
-        print("Inside password method")
         outputs.passwordValue.send(passwordValue)
         outputs.isLoginFailed.send(false)
     }

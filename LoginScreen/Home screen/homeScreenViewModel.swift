@@ -28,4 +28,8 @@ class HomeScreenViewModel: HomeScreenViewModelOutputs {
         self.emailValue.send(self.authService.currentUsername.value ?? "")
         self.passwordValue.send(self.authService.currentPassword.value ?? "")
     }
+    
+    deinit {
+        print("Object deinitialized")
+    }
 }

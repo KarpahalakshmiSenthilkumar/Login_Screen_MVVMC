@@ -17,6 +17,11 @@ class UserController: UIViewController {
     var viewModel: UserViewModel!
     var cancellables = Set<AnyCancellable>()
     
+//    deinit {
+//        cancellables.cancel()
+//        printContent("Object deinitialized for login screen")
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         errorLabel.isHidden = true
@@ -46,7 +51,6 @@ extension UserController {
             .outputs
             .canLogin
             .sink(receiveValue: { [weak self] (isEnabled) in
-                print(isEnabled)
                 self?.loginButton.backgroundColor = isEnabled ? UIColor.black : UIColor.gray
                 self?.loginButton.isEnabled = isEnabled
             }).store(in: &cancellables)
@@ -163,5 +167,13 @@ extension UIControl {
                 _ = subscriber?.receive(())
             }
         }
+    }
+}
+
+typealias Cancellables = Set<AnyCancellable>
+extension Cancellables {
+    mutating func cancel() {
+        forEach { $0.cancel() }
+        removeAll()
     }
 }
