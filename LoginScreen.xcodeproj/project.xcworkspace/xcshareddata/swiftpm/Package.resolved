@@ -1,6 +1,15 @@
 {
-  "originHash" : "40a3f282203110854a7cd4be591737b7b9fb1be4aeb2861034add082fee26874",
+  "originHash" : "f6f4abfdc575ee949b4dbefd5bde555bed97a1fa70bd79ca3471f034562eb103",
   "pins" : [
+    {
+      "identity" : "couchbase-lite-swift-ee",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/couchbase/couchbase-lite-swift-ee.git",
+      "state" : {
+        "revision" : "ee7db5bf959bfc928caee1c74169bcca0a30427d",
+        "version" : "3.2.1"
+      }
+    },
     {
       "identity" : "swinject",
       "kind" : "remoteSourceControl",
