@@ -32,9 +32,9 @@ class UserCoordinator {
         navigationController.pushViewController(loginViewController, animated: true)
     }
     
-    func homeScreen() {
-        let homeScreenCoordinator = HomeScreenCoordinator(navigationController: navigationController)
-        homeScreenCoordinator.start()
+    func patientListScreen() {
+        let patientListCoordinator = PatientListCoordinator(navigationController: navigationController)
+        patientListCoordinator.start()
     }
     
     func displayError(message: String) {

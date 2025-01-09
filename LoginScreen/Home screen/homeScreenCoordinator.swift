@@ -26,8 +26,12 @@ class HomeScreenCoordinator {
     }
     
     private func displayCredentials() {
-        let homeViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "homeController") as! HomeScreenViewController
-        let authService = authService
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let homeViewController = storyboard.instantiateViewController(withIdentifier: "homeController") as? HomeScreenViewController else {
+            print("Failed to instantiate HomeScreenViewController")
+            return
+        }
+//        let authService = authService
         let viewModel = HomeScreenViewModel(authService: authService as! AuthService, coordinator: self)
         homeViewController.viewModel = viewModel
         navigationController.pushViewController(homeViewController, animated: true)

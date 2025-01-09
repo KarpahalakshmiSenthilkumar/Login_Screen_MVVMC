@@ -106,7 +106,7 @@ class UserViewModel: LoginViewModelInputs, LoginViewModelOutputs {
                 self?.isLoginFailed.send(false)
                 print(self?.authService.currentUsername.value ?? "No username")
                 print(self?.authService.currentPassword.value ?? "No password")
-                self?.coordinator.homeScreen()
+                self?.coordinator.patientListScreen()
             } else {
                 self?.isLoginFailed.send(true)
                 self?.errorMessage.value = response.message
