@@ -22,16 +22,28 @@ class HomeScreenViewController: UIViewController {
         
     weak var delegate: PatientDetailsDelegate?
     var viewModel: HomeScreenViewModel!
+    var patient: PatientDetails?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let patient = patient {
+            mrn.text = patient.mrn
+            firstName.text = patient.firstName
+            middleName.text = patient.middleName
+            lastName.text = patient.lastName
+            gender.text = patient.gender
+            dob.date = stringToDate(patient.dateOfBirth ?? "") ?? Date.now
+            admissionNumber.text = patient.admissionNo
+            admitDate.date = stringToDate(patient.admitDate ?? "") ?? Date.now
+        }
     }
     
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         
         Task {
-            await DittoDatabaseManager.shared.insertPatientData(mrn: mrn.text ?? "", firstName: firstName.text ?? "", middleName: middleName.text ?? "", lastName: lastName.text ?? "", gender: gender.text ?? "", dobDate: dob.date, admissionNumber: admissionNumber.text ?? "", admitDate: admitDate.date)
+            await DittoDatabaseManager.shared.upsertPatientData(mrn: mrn.text ?? "", firstName: firstName.text ?? "", middleName: middleName.text ?? "", lastName: lastName.text ?? "", gender: gender.text ?? "", dobDate: dob.date, admissionNumber: admissionNumber.text ?? "", admitDate: admitDate.date)
         }
         let patient = PatientDetails(
                     mrn: mrn.text ?? "",
@@ -65,4 +77,10 @@ class HomeScreenViewController: UIViewController {
             formatter.dateStyle = .short
             return formatter.string(from: date)
         }
+    
+    private func stringToDate(_ dateString: String) -> Date? {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short  // You can adjust the style if needed.
+        return formatter.date(from: dateString)
+    }
 }

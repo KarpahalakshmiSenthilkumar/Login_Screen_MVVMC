@@ -29,19 +29,49 @@ class DittoDatabaseManager {
         self.store = ditto.store
     }
     
-    func insertPatientData(mrn: String, firstName: String, middleName: String, lastName: String, gender: String, dobDate:Date, admissionNumber: String, admitDate: Date) async {
-        // Prepare the new car data to be inserted
-        let newPatient: [String: Any] = ["mrn": mrn, "firstName": firstName, "middleName": middleName, "lastName": lastName, "gender": gender, "dobDate": dobDate, "admissionNumber": admissionNumber, "admitDate": admitDate, "treatment_id": mrn]
-        
-        do {
-            try await store.execute(
-                query: "INSERT INTO patient1 DOCUMENTS (:patient)",
-                arguments: ["patient": newPatient]
-            )
-            print("New patient data inserted successfully.")
-        } catch {
-            print("Error inserting patient data: \(error)")
-        }
+    func upsertPatientData(mrn: String, firstName: String, middleName: String, lastName: String, gender: String, dobDate:Date, admissionNumber: String, admitDate: Date) async {
+        let newPatient: [String: Any] = [
+                "mrn": mrn,
+                "firstName": firstName,
+                "middleName": middleName,
+                "lastName": lastName,
+                "gender": gender,
+                "dobDate": dobDate,
+                "admissionNumber": admissionNumber,
+                "admitDate": admitDate,
+                "treatment_id": mrn
+            ]
+            
+            do {
+                // Check if a document with the given MRN exists
+                let existingPatient = try await store.execute(query: "SELECT * FROM patient1 WHERE mrn = :mrn", arguments: ["mrn": mrn])
+                
+                if existingPatient.items.isEmpty {
+                    // If no document exists, insert a new one
+                    try await store.execute(query: "INSERT INTO patient1 DOCUMENTS (:patient)", arguments: ["patient": newPatient])
+                    print("New patient data inserted successfully.")
+                } else {
+                    // If the document exists, update it
+                    let patientDocID = existingPatient.items[0].value["_id"]  // Get the existing document ID
+                    try await store.execute(
+                        query: "UPDATE patient1 SET firstName = :firstName, middleName = :middleName, lastName = :lastName, gender = :gender, dobDate = :dobDate, admissionNumber = :admissionNumber, admitDate = :admitDate, treatment_id = :treatment_id WHERE _id = :id",
+                        arguments: [
+                            "firstName": firstName,
+                            "middleName": middleName,
+                            "lastName": lastName,
+                            "gender": gender,
+                            "dobDate": dobDate,
+                            "admissionNumber": admissionNumber,
+                            "admitDate": admitDate,
+                            "treatment_id": mrn,
+                            "id": patientDocID
+                        ]
+                    )
+                    print("Existing patient data updated successfully.")
+                }
+            } catch {
+                print("Error upserting patient data: \(error)")
+            }
     }
 
     func queryPatientData() async -> DittoQueryResult? {

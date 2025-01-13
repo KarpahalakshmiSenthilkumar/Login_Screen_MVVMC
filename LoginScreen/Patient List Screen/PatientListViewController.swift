@@ -52,6 +52,20 @@ class PatientListViewController: UIViewController, UITableViewDelegate, UITableV
         return 100 // Return the desired height
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            let selectedPatient = patientsList[indexPath.row]
+            
+            // Instantiate the HomeScreenViewController
+            if let homeVC = storyboard?.instantiateViewController(identifier: "homeController") as? HomeScreenViewController {
+                homeVC.delegate = self
+                // Pass the selected patient data to the home controller
+                homeVC.patient = selectedPatient  // Assuming you have a patient property in HomeScreenViewController
+                
+                // Present the home controller
+                self.present(homeVC, animated: true, completion: nil)
+            }
+        }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "patientListCell", for: indexPath) as? PatientListCell else {
                 fatalError("Cell should be of type PatientListCell")
@@ -112,8 +126,17 @@ class PatientListViewController: UIViewController, UITableViewDelegate, UITableV
 
 extension PatientListViewController: PatientDetailsDelegate {
     func didSavePatient(_ patient: PatientDetails) {
-        patientsList.append(patient)
-        print(patient)
-        PatientListTable.reloadData()
+        if let index = patientsList.firstIndex(where: { $0.mrn == patient.mrn }) {
+                    // If the patient exists, update the patient at that index
+                    patientsList[index] = patient
+                    print("Updated patient: \(patient)")
+                } else {
+                    // If the patient doesn't exist, append the new patient
+                    patientsList.append(patient)
+                    print("New patient added: \(patient)")
+                }
+                
+                // Reload the table view to reflect the changes
+                PatientListTable.reloadData()
     }
 }
