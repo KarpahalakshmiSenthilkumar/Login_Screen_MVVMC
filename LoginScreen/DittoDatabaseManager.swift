@@ -20,7 +20,7 @@ class DittoDatabaseManager {
             appID: "32331fd4-c4b7-4b29-8104-a9853da303d8",
             token: "1f48ba1d-300f-4365-b962-29b2b143472d"
         ))
-        
+                
         do {
           try ditto.startSync()
         } catch (let err) {
