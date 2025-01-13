@@ -32,6 +32,8 @@
 		C5947BF62D2FA54F001DA07C /* PatientListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5947BF52D2FA54E001DA07C /* PatientListCell.swift */; };
 		C5947BF82D2FA8FA001DA07C /* PatientListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5947BF72D2FA8FA001DA07C /* PatientListCoordinator.swift */; };
 		C5947BFA2D2FA9B8001DA07C /* PatientListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5947BF92D2FA9B8001DA07C /* PatientListViewModel.swift */; };
+		C5947C002D2FEC82001DA07C /* DittoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C5947BFF2D2FEC82001DA07C /* DittoSwift */; };
+		C5947C022D2FF753001DA07C /* DittoDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5947C012D2FF753001DA07C /* DittoDatabaseManager.swift */; };
 		C5E50FBA2D26A7C60074A18D /* PatientDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E50FB92D26A7C60074A18D /* PatientDetails.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +83,7 @@
 		C5947BF52D2FA54E001DA07C /* PatientListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientListCell.swift; sourceTree = "<group>"; };
 		C5947BF72D2FA8FA001DA07C /* PatientListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientListCoordinator.swift; sourceTree = "<group>"; };
 		C5947BF92D2FA9B8001DA07C /* PatientListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientListViewModel.swift; sourceTree = "<group>"; };
+		C5947C012D2FF753001DA07C /* DittoDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DittoDatabaseManager.swift; sourceTree = "<group>"; };
 		C5E50FB92D26A7C60074A18D /* PatientDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,6 +93,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C57C726F2D02C91F00ECAE0A /* Swinject in Frameworks */,
+				C5947C002D2FEC82001DA07C /* DittoSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +151,7 @@
 				C574DB3E2CF6FDF60071B525 /* AuthService.swift */,
 				C577F6D02D00080D003A2F8F /* AuthServiceInvokable.swift */,
 				C57C72662D02BC4B00ECAE0A /* IoC.swift */,
+				C5947C012D2FF753001DA07C /* DittoDatabaseManager.swift */,
 			);
 			path = LoginScreen;
 			sourceTree = "<group>";
@@ -227,6 +232,7 @@
 			name = LoginScreen;
 			packageProductDependencies = (
 				C57C726E2D02C91F00ECAE0A /* Swinject */,
+				C5947BFF2D2FEC82001DA07C /* DittoSwift */,
 			);
 			productName = LoginScreen;
 			productReference = C574DB082CF6F7000071B525 /* LoginScreen.app */;
@@ -302,6 +308,7 @@
 			mainGroup = C574DAFF2CF6F7000071B525;
 			packageReferences = (
 				C57C726D2D02C91F00ECAE0A /* XCRemoteSwiftPackageReference "Swinject" */,
+				C5947BFE2D2FEC82001DA07C /* XCRemoteSwiftPackageReference "DittoSwiftPackage" */,
 			);
 			productRefGroup = C574DB092CF6F7000071B525 /* Products */;
 			projectDirPath = "";
@@ -355,6 +362,7 @@
 				C574DB4C2CF7355D0071B525 /* LoginResponse.swift in Sources */,
 				C5947BF62D2FA54F001DA07C /* PatientListCell.swift in Sources */,
 				C574DB4A2CF7031B0071B525 /* UserController.swift in Sources */,
+				C5947C022D2FF753001DA07C /* DittoDatabaseManager.swift in Sources */,
 				C57C72672D02BC4B00ECAE0A /* IoC.swift in Sources */,
 				C5E50FBA2D26A7C60074A18D /* PatientDetails.swift in Sources */,
 				C574DB482CF701910071B525 /* UserCoordinator.swift in Sources */,
@@ -715,6 +723,14 @@
 				minimumVersion = 2.9.1;
 			};
 		};
+		C5947BFE2D2FEC82001DA07C /* XCRemoteSwiftPackageReference "DittoSwiftPackage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/getditto/DittoSwiftPackage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.9.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -722,6 +738,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C57C726D2D02C91F00ECAE0A /* XCRemoteSwiftPackageReference "Swinject" */;
 			productName = Swinject;
+		};
+		C5947BFF2D2FEC82001DA07C /* DittoSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C5947BFE2D2FEC82001DA07C /* XCRemoteSwiftPackageReference "DittoSwiftPackage" */;
+			productName = DittoSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

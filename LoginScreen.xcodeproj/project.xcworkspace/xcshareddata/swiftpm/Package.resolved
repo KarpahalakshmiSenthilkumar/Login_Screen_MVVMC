@@ -1,6 +1,15 @@
 {
-  "originHash" : "40a3f282203110854a7cd4be591737b7b9fb1be4aeb2861034add082fee26874",
+  "originHash" : "33257d283710854ed035a083afe1baebfaf6080e7cfbe35529738e8a0181a0c2",
   "pins" : [
+    {
+      "identity" : "dittoswiftpackage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/getditto/DittoSwiftPackage",
+      "state" : {
+        "revision" : "f5fe2be65db126bd0535f3f5e831e679b7aa2dad",
+        "version" : "4.9.2"
+      }
+    },
     {
       "identity" : "swinject",
       "kind" : "remoteSourceControl",

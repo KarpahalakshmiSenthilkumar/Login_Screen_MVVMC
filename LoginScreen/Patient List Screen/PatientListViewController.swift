@@ -31,7 +31,21 @@ class PatientListViewController: UIViewController, UITableViewDelegate, UITableV
         
         PatientListTable.register(PatientListCell.self, forCellReuseIdentifier: "patientListCell")
         
-//        patientsList.append(PatientDetails(mrn: "1234", firstName: "Gayathri", middleName: "Priya", lastName: "Madhavan", gender: "Female", dateOfBirth: "12/12/1985", admissionNo: "1537", admitDate: "12/5/2024"))
+        Task {
+            print("queryPatientDetails calling...")
+            await queryPatientDetails()
+        }
+        
+        DittoDatabaseManager.shared.queryPatient()
+        
+//        Task {
+//            let result = await databaseManager.queryPatientData()
+//            let item = result!.items[0]
+////            let itemValue = item.value
+//            let itemValueColor = item.value["mrn"]
+////            print("itemValueColor \(itemValueColor)")
+//            patientsList.append(PatientDetails(mrn: item.value["mrn"] as! String, firstName: item.value["firstName"] as! String, middleName: item.value["middleName"] as! String, lastName: item.value["lastName"] as! String, gender: item.value["gender"] as! String, dateOfBirth: item.value["dobDate"] as! String, admissionNo: item.value["admissionNumber"] as! String, admitDate: item.value["admitDate"] as! String))
+//        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -51,10 +65,35 @@ class PatientListViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBAction func plusButtonClicked(_ sender: Any) {
         if let homeVC = self.storyboard?.instantiateViewController(identifier: "homeController") as? HomeScreenViewController {
-            homeVC.delegate = self
+//            homeVC.delegate = self
+//            patientsList.append(patient)
             self.present(homeVC, animated: true)
         } else {
             print("HomeScreenViewController could not be instantiated")
+        }
+    }
+    
+    func queryPatientDetails() async {
+        do {
+            // Execute the query
+            let result = await DittoDatabaseManager.shared.queryPatientData()
+            
+            // Iterate through the items in the result
+            for item in result!.items {
+                let mrn = item.value["mrn"] as? String ?? "Unknown MRN"
+                let firstName = item.value["firstName"] as? String ?? "Unknown First Name"
+                let middleName = item.value["middleName"] as? String ?? "Unknown Middle Name"
+                let lastName = item.value["lastName"] as? String ?? "Unknown Last Name"
+                let gender = item.value["gender"] as? String ?? "Unknown Gender"
+                let dateOfBirth = item.value["dobDate"] as? String ?? "Unknown DOB"
+                let admissionNo = item.value["admissionNumber"] as? String ?? "Unknown Admission No"
+                let admitDate = item.value["admitDate"] as? String ?? "Unknown Admit Date"
+
+                // Initialize the Patient model and append it to the array
+                let patient = PatientDetails(mrn: mrn, firstName: firstName, middleName: middleName, lastName: lastName, gender: gender, dateOfBirth: dateOfBirth, admissionNo: admissionNo, admitDate: admitDate)
+                print("Patient \(patient)")
+                patientsList.append(patient)
+            }
         }
     }
 //    func navigateToHomeScreen() {
@@ -65,10 +104,10 @@ class PatientListViewController: UIViewController, UITableViewDelegate, UITableV
 //    }
 }
 
-extension PatientListViewController: PatientDetailsDelegate {
-    func didSavePatient(_ patient: PatientDetails) {
-        patientsList.append(patient)
-        print(patient)
-        PatientListTable.reloadData()
-    }
-}
+//extension PatientListViewController: PatientDetailsDelegate {
+//    func didSavePatient(_ patient: PatientDetails) {
+//        patientsList.append(patient)
+//        print(patient)
+//        PatientListTable.reloadData()
+//    }
+//}

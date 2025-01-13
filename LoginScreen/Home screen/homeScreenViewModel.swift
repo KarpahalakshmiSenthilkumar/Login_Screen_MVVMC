@@ -7,7 +7,6 @@
 
 import Foundation
 import Combine
-import CouchbaseLiteSwift
 import UIKit
 
 protocol HomeScreenViewModelInputs {
