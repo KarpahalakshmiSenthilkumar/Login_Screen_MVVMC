@@ -31,11 +31,11 @@ class DittoDatabaseManager {
     
     func insertPatientData(mrn: String, firstName: String, middleName: String, lastName: String, gender: String, dobDate:Date, admissionNumber: String, admitDate: Date) async {
         // Prepare the new car data to be inserted
-        let newPatient: [String: Any] = ["firstName": firstName, "middleName": middleName, "lastName": lastName, "gender": gender, "treatment_id": mrn]
+        let newPatient: [String: Any] = ["mrn": mrn, "firstName": firstName, "middleName": middleName, "lastName": lastName, "gender": gender, "dobDate": dobDate, "admissionNumber": admissionNumber, "admitDate": admitDate, "treatment_id": mrn]
         
         do {
             try await store.execute(
-                query: "INSERT INTO patient2 DOCUMENTS (:patient)",
+                query: "INSERT INTO patient1 DOCUMENTS (:patient)",
                 arguments: ["patient": newPatient]
             )
             print("New patient data inserted successfully.")
@@ -47,8 +47,8 @@ class DittoDatabaseManager {
     func queryPatientData() async -> DittoQueryResult? {
         do {
             // Query to select all data from the `cars` collection
-            let result = try await store.execute(query: "SELECT * FROM patient2")
-            print("Query result: \(result)")
+            let result = try await store.execute(query: "SELECT * FROM patient1")
+            print("Query result: \(result.items)")
             return result
         } catch {
             print("Error querying patient data: \(error)")

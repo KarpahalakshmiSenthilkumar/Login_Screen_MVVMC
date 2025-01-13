@@ -33,6 +33,18 @@ class HomeScreenViewController: UIViewController {
         Task {
             await DittoDatabaseManager.shared.insertPatientData(mrn: mrn.text ?? "", firstName: firstName.text ?? "", middleName: middleName.text ?? "", lastName: lastName.text ?? "", gender: gender.text ?? "", dobDate: dob.date, admissionNumber: admissionNumber.text ?? "", admitDate: admitDate.date)
         }
+        let patient = PatientDetails(
+                    mrn: mrn.text ?? "",
+                    firstName: firstName.text ?? "",
+                    middleName: middleName.text ?? "",
+                    lastName: lastName.text ?? "",
+                    gender: gender.text ?? "",
+                    dateOfBirth: dateToString(dob.date),
+                    admissionNo: admissionNumber.text ?? "",
+                    admitDate: dateToString(admitDate.date)
+                )
+        delegate?.didSavePatient(patient)
+        self.dismiss(animated: true, completion: nil)
 //        self.dismiss(animated: true) {
 //            if let delegate = self.delegate {
 //                let patient = PatientDetails(
