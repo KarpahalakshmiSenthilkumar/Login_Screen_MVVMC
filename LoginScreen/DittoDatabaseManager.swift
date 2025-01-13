@@ -71,11 +71,11 @@ class DittoDatabaseManager {
             if let treatmentID = patient["treatment_id"].value as? String {
                 
                 // Fetch the corresponding treatment document using the treatment_id
-                if let treatmentDoc = treatmentCollection.find(treatmentID).exec() {
+                if let treatmentDoc  = treatmentCollection.find(treatmentID).exec() as [DittoDocument]? {
                     
                     // Combine patient and treatment details
-                    var patientWithTreatment = patient
-                    patientWithTreatment = treatmentDoc
+//                    var patientWithTreatment = patient
+                    var patientWithTreatment = treatmentDoc
                     
                     // Output the combined patient and treatment details
                     print("Patient with treatment details: \(patientWithTreatment)")
