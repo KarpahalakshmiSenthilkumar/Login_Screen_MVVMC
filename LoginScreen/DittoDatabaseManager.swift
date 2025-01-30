@@ -88,7 +88,7 @@ class DittoDatabaseManager {
     
     func queryPatient() {
         let treatmentCollection = ditto.store.collection("treatment")
-        let patientCollection = ditto.store.collection("patient2")
+        let patientCollection = ditto.store.collection("patient1")
 
         // Fetch all patients
         let allPatients = patientCollection.findAll().exec()
@@ -105,7 +105,7 @@ class DittoDatabaseManager {
                     
                     // Combine patient and treatment details
 //                    var patientWithTreatment = patient
-                    var patientWithTreatment = treatmentDoc
+                    let patientWithTreatment = treatmentDoc
                     
                     // Output the combined patient and treatment details
                     print("Patient with treatment details: \(patientWithTreatment)")
